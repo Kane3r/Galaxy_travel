@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat con Gemini</title>
+  <style>
+    #chatlog {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #f9f9f9;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat con Gemini</h1>
+  <div id="chatlog"></div>
+  <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
+  <button onclick="sendMessage()">Enviar</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

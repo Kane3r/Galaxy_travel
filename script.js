@@ -1,0 +1,25 @@
+function sendMessage() {
+  const input = document.getElementById("userInput");
+  const chatlog = document.getElementById("chatlog");
+  const userMessage = input.value.trim();
+
+  if (!userMessage) return;
+
+  chatlog.innerHTML += `<div><strong>Tú:</strong> ${userMessage}</div>`;
+
+  fetch("chat.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message: userMessage })
+  })
+    .then(response => response.json())
+    .then(data => {
+      chatlog.innerHTML += `<div><strong>Gemini:</strong> ${data.reply}</div>`;
+      chatlog.scrollTop = chatlog.scrollHeight;
+    })
+    .catch(err => {
+      chatlog.innerHTML += `<div><strong>Error:</strong> No se pudo conectar.</div>`;
+    });
+
+  input.value = "";
+}
