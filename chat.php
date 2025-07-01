@@ -1,4 +1,4 @@
-C:\xampp\htdocs\GALAXY TRAVEL\Galaxy_travel\<?php
+<?php
 
 $apiKey = 'AIzaSyDImtnxsmIrGdgpy0XbmBq0u96fS7_fzYo'; // 
 
