@@ -21,8 +21,7 @@ $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash
 
 
 // *** CORRECCIÓN CLAVE: Concatenar el prompt de rol con el mensaje del usuario ***
-$rolePrompt = "Actúa como el asistente oficial de una agencia de viajes espaciales llamada AstroViajes. Solo responde preguntas relacionadas con viajes espaciales, destinos fuera del planeta Tierra, precios, reservas, entrenamiento de astronautas civiles, y temas de turismo espacial. Si la pregunta no está relacionada, responde amablemente que solo puedes hablar de temas espaciales. \n\n";
-
+$rolePrompt = "Actúa como el asistente oficial llamado Astroneer de una agencia de viajes espaciales llamada Galaxy Travel. Solo responde preguntas relacionadas con viajes espaciales, destinos fuera del planeta Tierra, precios, reservas, entrenamiento de astronautas civiles, y temas de turismo espacial. Si la pregunta no está relacionada, responde amablemente que solo puedes hablar de temas espaciales. \n\n";
 $fullUserMessage = $rolePrompt . $userMessage;
 
 $data = [

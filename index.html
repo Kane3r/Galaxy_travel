@@ -2,14 +2,24 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Chat con Gemini</title>
-  <link rel="stylesheet" href="styles/chatbot/chatbot.css">
+  <title>Chatea con Astroneer</title>
+  <style>
+    #chatlog {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #f9f9f9;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Chat con Gemini</h1>
-  <div id="chatlog">
-    <div class="bot-message">¡Hola! Bienvenido a AstroViajes. ¿En qué puedo ayudarte hoy con respecto a tu viaje espacial?</div>
-  </div>
+  <h1>Chatea con Astroneer</h1>
+  <div id="chatlog"></div>
   <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeypress="handleKeyPress(event)">
 
   <button onclick="sendMessage()">Enviar</button>
