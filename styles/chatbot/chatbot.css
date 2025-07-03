@@ -39,20 +39,32 @@ h1 {
   font-size: 3em;
   letter-spacing: 3px;
   color: #ffffff;
-  text-shadow: 0 0 20px #ffffff, 0 0 30px #ff00ff;
+  text-shadow: 0 0 20px #ffffff, 0 0 30px #001f3f;
 }
 
 #chatlog {
-  background: rgba(20, 30, 60, 0.85);
+  background: #001f3f;
   border-radius: 18px;
-  box-shadow: 0 0 24px #ff00ffa0;
+  box-shadow: 0 0 24px #001f3fa0;
   padding: 30px;
-  margin: 30px auto 0 auto;
+  margin: 30px auto;
   width: 90%;
   max-width: 800px;
   min-height: 300px;
   font-size: 1.1em;
   overflow-y: auto;
+  color: #ffffff;
+}
+
+/* Estilo para los mensajes del bot y del usuario */
+#chatlog .user-message {
+  color: #00bfff;
+  margin-bottom: 10px;
+}
+
+#chatlog .bot-message {
+  color: #ffffff;
+  margin-bottom: 10px;
 }
 
 input,
@@ -70,27 +82,35 @@ input {
   display: inline-block;
   background: #232526;
   color: #fff;
-  box-shadow: 0 0 8px #ff00ffa0;
+  box-shadow: 0 0 8px #001f3fa0;
 }
 
 button {
-  background-color: #ff00ff;
+  background-color: #001f3f;
   color: white;
   cursor: pointer;
   display: inline-block;
   transition: background 0.2s;
-  box-shadow: 0 0 8px #ff00ffa0;
+  box-shadow: 0 0 8px #001f3fa0;
 }
 
 button:hover {
-  background-color: #cc00cc;
+  background-color: #003366;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  background: #232526;
+/* Centrar el cuadro de entrada y botón */
+#userInput,
+button {
+  display: block;
+  margin: 10px auto;
 }
-::-webkit-scrollbar-thumb {
-  background: #ff00ffa0;
-  border-radius: 8px;
+
+/* Centrar el texto de entrada */
+#userInput {
+  text-align: center;
+}
+
+/* Ajustar el fondo del cuadro de respuesta */
+#chatlog {
+  background: #001f3f;
 }
