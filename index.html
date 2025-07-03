@@ -3,18 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Chat con Gemini</title>
-  <link rel="stylesheet" href="styles/style.css">
-  <!-- Vincular el nuevo archivo de estilos del chatbot -->
-  <link rel="stylesheet" href="styles/chatbot/chatbot.css">
+  <style>
+    #chatlog {
+      height: 300px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #f9f9f9;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 5px;
+    }
+  </style>
 </head>
 <body>
-  <!-- Cambiar título nuevamente a 'Habla con Geminis' -->
-  <h1 class="chat-title">Habla con Geminis</h1>
-  <div id="chatlog" class="chat-box"></div>
-  <div id="input-form" style="text-align: center;">
-    <input type="text" id="userInput" class="message-input" placeholder="Escribe tu mensaje...">
-    <button id="send-btn" onclick="sendMessage()">Enviar</button>
-  </div>
+  <h1>Chat con Gemini</h1>
+  <div id="chatlog"></div>
+  <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeypress="handleKeyPress(event)">
+
+  <button onclick="sendMessage()">Enviar</button>
+
   <script src="script.js"></script>
 </body>
 </html>

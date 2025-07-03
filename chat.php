@@ -20,22 +20,28 @@ $ch = curl_init();
 $url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" . $apiKey;
 
 
+// *** CORRECCIÓN CLAVE: Concatenar el prompt de rol con el mensaje del usuario ***
+$rolePrompt = "Actúa como el asistente oficial de una agencia de viajes espaciales llamada AstroViajes. Solo responde preguntas relacionadas con viajes espaciales, destinos fuera del planeta Tierra, precios, reservas, entrenamiento de astronautas civiles, y temas de turismo espacial. Si la pregunta no está relacionada, responde amablemente que solo puedes hablar de temas espaciales. \n\n";
+
+$fullUserMessage = $rolePrompt . $userMessage;
+
 $data = [
     'contents' => [[
-        'parts' => [[ 'text' => $userMessage ]]
+        'role' => 'user', // El rol es 'user' para este único turno de la conversación
+        'parts' => [[ 'text' => $fullUserMessage ]] // El mensaje completo con las instrucciones y la pregunta
     ]]
 ];
 
 curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // Devuelve la respuesta como string
-curl_setopt($ch, CURLOPT_POST, true);           // Configura la solicitud como POST
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']); // Indica que enviamos JSON
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data)); // Adjunta los datos JSON
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
 
-$response = curl_exec($ch);      
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
-$error = curl_error($ch);        
-curl_close($ch);                 
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$error = curl_error($ch);
+curl_close($ch);               
 
 
 if (!$response) {

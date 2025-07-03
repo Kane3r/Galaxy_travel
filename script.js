@@ -6,6 +6,13 @@ function sendMessage() {
   if (!userMessage) return;
 
   chatlog.innerHTML += `<div><strong>Tú:</strong> ${userMessage}</div>`;
+  
+  // Mostrar mensaje "escribiendo"
+  const typingDiv = document.createElement("div");
+  typingDiv.id = "typing";
+  typingDiv.innerHTML = `<em>Gemini está escribiendo...</em>`;
+  chatlog.appendChild(typingDiv);
+  chatlog.scrollTop = chatlog.scrollHeight;
 
   fetch("chat.php", {
     method: "POST",
@@ -14,12 +21,21 @@ function sendMessage() {
   })
     .then(response => response.json())
     .then(data => {
+      typingDiv.remove(); // Quitar el mensaje "escribiendo"
       chatlog.innerHTML += `<div><strong>Gemini:</strong> ${data.reply}</div>`;
       chatlog.scrollTop = chatlog.scrollHeight;
     })
     .catch(err => {
+      typingDiv.remove(); // Quitar mensaje incluso si hay error
       chatlog.innerHTML += `<div><strong>Error:</strong> No se pudo conectar.</div>`;
     });
 
   input.value = "";
 }
+
+function handleKeyPress(event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+}
+
