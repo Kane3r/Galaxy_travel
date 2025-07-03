@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <title>Chat con Gemini</title>
   <link rel="stylesheet" href="styles/style.css">
+  <!-- Vincular el nuevo archivo de estilos del chatbot -->
+  <link rel="stylesheet" href="styles/chatbot/chatbot.css">
 </head>
 <body>
-  <h1 class="chat-title">Chat con Gemini</h1>
+  <!-- Cambiar título nuevamente a 'Habla con Geminis' -->
+  <h1 class="chat-title">Habla con Geminis</h1>
   <div id="chatlog" class="chat-box"></div>
-  <div id="input-form">
+  <div id="input-form" style="text-align: center;">
     <input type="text" id="userInput" class="message-input" placeholder="Escribe tu mensaje...">
     <button id="send-btn" onclick="sendMessage()">Enviar</button>
   </div>
