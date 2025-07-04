@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Chatea con Astroneer</title>
+  <title>Chat con Astroneer</title>
   <style>
     #chatlog {
       height: 300px;
@@ -16,10 +16,13 @@
       padding: 5px;
     }
   </style>
+  <link rel="stylesheet" href="styles/chatbot/chatbot.css">
 </head>
 <body>
-  <h1>Chatea con Astroneer</h1>
-  <div id="chatlog"></div>
+  <h1>Chat con Astroneer</h1>
+  <div id="chatlog">
+    <div class="bot-message"></div>
+  </div>
   <input type="text" id="userInput" placeholder="Escribe tu mensaje..." onkeypress="handleKeyPress(event)">
 
   <button onclick="sendMessage()">Enviar</button>
