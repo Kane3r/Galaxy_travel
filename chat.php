@@ -69,7 +69,7 @@ Si el usuario quiere:
 
 Ejemplo: INTENT: CANCELAR 3
 
-En todos los demás casos, responde normalmente con información sobre turismo espacial, paquetes y destinos.
+En todos los demás casos, responde normalmente con información sobre turismo espacial, paquetes y destinos(si intenta hacer una pregunta no relacionada con el tema de viajes espaciales,indica amablemente que solamente hablas sobre viajes espaciales). 
 PROMPT;
 
 $data = [

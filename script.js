@@ -22,7 +22,7 @@ function sendMessage() {
     .then(response => response.json())
     .then(data => {
       typingDiv.remove(); // Quitar el mensaje "escribiendo"
-      chatlog.innerHTML += `<div><strong>Astroneer:</strong> ${data.reply}</div>`;
+      chatlog.innerHTML += `<div><strong>👾Astroneer:</strong> ${data.reply}</div>`;
       chatlog.scrollTop = chatlog.scrollHeight;
     })
     .catch(err => {
