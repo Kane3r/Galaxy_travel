@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-07-2025 a las 00:33:07
+-- Tiempo de generación: 08-07-2025 a las 20:11:38
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -37,6 +37,14 @@ CREATE TABLE `clientes` (
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `usuario`, `contrasena`, `nombre`, `edad`, `cedula_identidad`, `fecha_registro`) VALUES
+(1, 'kevin123', '$2y$10$pnRMMwqtMw0z28EFcFM1J.BYcasFQn2mvbaYGaMsxX.pYBvRgzt5.', 'Kevin Rozo', 22, 'V-12345678', '2025-07-07 04:00:00'),
+(2, 'kevin', '$2y$10$vgMLZoytkoEzntQt3X3VWOcNH4sUAzQIZ5V67ovtl.C25CjjNKZIK', 'Kevin Jesus', 24, '28109034', '2025-07-07 04:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -49,6 +57,15 @@ CREATE TABLE `destinos` (
   `descripcion` text DEFAULT NULL,
   `precio_base` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `destinos`
+--
+
+INSERT INTO `destinos` (`id`, `nombre`, `descripcion`, `precio_base`) VALUES
+(1, 'Luna', 'Nuestro satélite natural', 0.00),
+(2, 'Marte', 'El planeta rojo', 0.00),
+(3, 'Europa', 'Luna helada de Júpiter', 0.00);
 
 -- --------------------------------------------------------
 
@@ -81,6 +98,15 @@ CREATE TABLE `paquetes` (
   `precio_total` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `paquetes`
+--
+
+INSERT INTO `paquetes` (`id`, `nombre`, `destino_id`, `descripcion`, `fecha_salida`, `duracion_dias`, `cupos_disponibles`, `precio_total`) VALUES
+(1, 'Aventura Lunar', 1, 'Viaje de exploración a la Luna con caminata lunar incluida.', '2025-08-01', 5, 9, 50000.00),
+(2, 'Misión Marte', 2, 'Viaje a Marte con estadía en hábitat temporal.', '2025-09-15', 20, 3, 120000.00),
+(3, 'Europa Glacial', 3, 'Exploración subglacial automatizada en Europa.', '2025-10-20', 10, 7, 90000.00);
+
 -- --------------------------------------------------------
 
 --
@@ -94,6 +120,16 @@ CREATE TABLE `reservaciones` (
   `fecha_reserva` timestamp NOT NULL DEFAULT current_timestamp(),
   `estado` enum('pendiente','confirmado','cancelado') DEFAULT 'pendiente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reservaciones`
+--
+
+INSERT INTO `reservaciones` (`id`, `cliente_id`, `paquete_id`, `fecha_reserva`, `estado`) VALUES
+(1, 2, 1, '2025-07-08 01:44:48', 'pendiente'),
+(2, 2, 2, '2025-07-08 01:58:50', 'pendiente'),
+(3, 1, 2, '2025-07-08 02:14:49', 'pendiente'),
+(4, 1, 3, '2025-07-08 02:16:37', 'pendiente');
 
 --
 -- Índices para tablas volcadas
@@ -143,13 +179,13 @@ ALTER TABLE `reservaciones`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `destinos`
 --
 ALTER TABLE `destinos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
@@ -161,13 +197,13 @@ ALTER TABLE `pagos`
 -- AUTO_INCREMENT de la tabla `paquetes`
 --
 ALTER TABLE `paquetes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `reservaciones`
 --
 ALTER TABLE `reservaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
