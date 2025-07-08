@@ -39,3 +39,7 @@ function handleKeyPress(event) {
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("userInput");
+  input.addEventListener("keypress", handleKeyPress);
+});
