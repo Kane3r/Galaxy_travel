@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-07-2025 a las 20:11:38
+-- Tiempo de generación: 08-07-2025 a las 22:34:19
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -63,9 +63,12 @@ CREATE TABLE `destinos` (
 --
 
 INSERT INTO `destinos` (`id`, `nombre`, `descripcion`, `precio_base`) VALUES
-(1, 'Luna', 'Nuestro satélite natural', 0.00),
-(2, 'Marte', 'El planeta rojo', 0.00),
-(3, 'Europa', 'Luna helada de Júpiter', 0.00);
+(1, 'Mercurio', NULL, 0.00),
+(2, 'Venus', NULL, 0.00),
+(3, 'Órbita Terrestre', NULL, 0.00),
+(4, 'Marte', NULL, 0.00),
+(5, 'Lunas de Júpiter', NULL, 0.00),
+(6, 'Lunas de Saturno', NULL, 0.00);
 
 -- --------------------------------------------------------
 
@@ -103,9 +106,12 @@ CREATE TABLE `paquetes` (
 --
 
 INSERT INTO `paquetes` (`id`, `nombre`, `destino_id`, `descripcion`, `fecha_salida`, `duracion_dias`, `cupos_disponibles`, `precio_total`) VALUES
-(1, 'Aventura Lunar', 1, 'Viaje de exploración a la Luna con caminata lunar incluida.', '2025-08-01', 5, 9, 50000.00),
-(2, 'Misión Marte', 2, 'Viaje a Marte con estadía en hábitat temporal.', '2025-09-15', 20, 3, 120000.00),
-(3, 'Europa Glacial', 3, 'Exploración subglacial automatizada en Europa.', '2025-10-20', 10, 7, 90000.00);
+(1, 'Escapada Extrema a Mercurio - El Mensajero Solar', 1, 'Estancia en base subterránea. Incluye: observación solar desde mirador blindado, exploración guiada en vehículos radioprotegidos, participación en experimentos geológicos, vistas planetarias desde órbita de Mercurio.', '2026-01-10', 180, 4, 99999999.99),
+(2, 'Aventura Atmosférica en Venus - El Velo Naranja Flotante', 2, 'Estancia en ciudad flotante. Incluye: observación de nubes de ácido sulfúrico, exploración en vehículos aéreos, estudios del efecto invernadero y vistas atmosféricas únicas.', '2026-03-20', 120, 6, 99999999.99),
+(3, 'Retiro en Órbita Terrestre - El Oasis Azul', 3, 'Estancia en la ISS o hotel espacial. Incluye: vistas panorámicas de la Tierra, experimentación en microgravedad, comidas espaciales, caminatas opcionales.', '2025-11-01', 14, 10, 60000000.00),
+(4, 'Pioneros en Marte - La Nueva Frontera Roja', 4, 'Hábitats presurizados en la superficie marciana. Incluye: exploración en rover, construcción de base, investigaciones científicas, cultivo en invernaderos, observación de Fobos y Deimos.', '2027-06-15', 600, 2, 99999999.99),
+(5, 'Exploración Lunar Joviana - Los Océanos Escondidos', 5, 'Estancia en bases blindadas en Europa, Ganímedes o Calisto. Incluye: perforación de hielo, exploración oceánica robótica, estudios de vida microbiana, observación de Júpiter.', '2028-09-30', 1000, 1, 99999999.99),
+(6, 'Descubrimiento en las Lunas de Saturno - Los Mundos Anillados', 6, 'Hábitats protegidos en Titán o Encélado. Incluye: navegación por lagos de metano, exploración de dunas, recolección de penachos de hielo, observación de anillos.', '2029-04-22', 1500, 1, 99999999.99);
 
 -- --------------------------------------------------------
 
@@ -120,16 +126,6 @@ CREATE TABLE `reservaciones` (
   `fecha_reserva` timestamp NOT NULL DEFAULT current_timestamp(),
   `estado` enum('pendiente','confirmado','cancelado') DEFAULT 'pendiente'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `reservaciones`
---
-
-INSERT INTO `reservaciones` (`id`, `cliente_id`, `paquete_id`, `fecha_reserva`, `estado`) VALUES
-(1, 2, 1, '2025-07-08 01:44:48', 'pendiente'),
-(2, 2, 2, '2025-07-08 01:58:50', 'pendiente'),
-(3, 1, 2, '2025-07-08 02:14:49', 'pendiente'),
-(4, 1, 3, '2025-07-08 02:16:37', 'pendiente');
 
 --
 -- Índices para tablas volcadas
@@ -185,7 +181,7 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de la tabla `destinos`
 --
 ALTER TABLE `destinos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
@@ -197,7 +193,7 @@ ALTER TABLE `pagos`
 -- AUTO_INCREMENT de la tabla `paquetes`
 --
 ALTER TABLE `paquetes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `reservaciones`
