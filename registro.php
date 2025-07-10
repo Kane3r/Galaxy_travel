@@ -12,7 +12,7 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $BaseDeDatos);
 <head>
     <meta charset="UTF-8">
     <title>Registro de Cliente</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style_login.css">
 </head>
 <body>
 

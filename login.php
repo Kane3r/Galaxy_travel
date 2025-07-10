@@ -13,7 +13,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style_login.css">
 </head>
 <body>
 
@@ -42,7 +42,7 @@ if (isset($_POST['login'])) {
             $_SESSION['id'] = $cliente['id'];
 
             mysqli_close($enlace);
-            echo "<script>window.location.href = 'index.php';</script>";
+            echo "<script>window.location.href = 'chatbot.php';</script>";
         } else {
             echo "<script>alert('Contraseña incorrecta');</script>";
         }
