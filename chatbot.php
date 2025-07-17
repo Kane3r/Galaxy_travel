@@ -72,6 +72,25 @@ if (!isset($_SESSION['id'])) {
         button:hover {
             background-color: #009acd;
         }
+
+        .btn-volver-principal {
+            display: block; 
+            width: fit-content;
+            padding: 12px 25px;
+            margin-top: 25px; 
+            background-color: #0056b3; 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none; 
+            font-size: 1em;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .btn-volver-principal:hover {
+            background-color: #003f7f; 
+        }
     </style>
 </head>
 <body>
@@ -83,6 +102,9 @@ if (!isset($_SESSION['id'])) {
         <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
         <button onclick="sendMessage()">Enviar</button>
     </div>
+
+  
+    <a href="index.html" class="btn-volver-principal">Volver a la página principal</a>
 
     <script src="scripts/script_chat.js"></script>
 </body>
