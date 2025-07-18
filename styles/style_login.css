@@ -145,23 +145,3 @@ input[type="reset"]:hover {
 .header-content:form{
     padding: 0;
 }
-
-/* Estilos para el nuevo botón "Volver a la página principal" */
-        .btn-volver-principal {
-            display: block; /* Para que ocupe su propia línea */
-            width: fit-content; /* Se ajusta al contenido */
-            padding: 12px 25px;
-            margin-top: 25px; /* Espacio superior para separarlo del chat */
-            background-color: #0056b3; /* El color solicitado */
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none; /* Quita el subrayado del enlace */
-            font-size: 1em;
-            transition: background-color 0.2s ease-in-out;
-        }
-
-        .btn-volver-principal:hover {
-            background-color: #003f7f; /* Un tono un poco más oscuro al pasar el ratón */
-        }

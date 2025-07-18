@@ -27,7 +27,6 @@ session_start();
       height: 100vh;
       font-family: "Fira Mono", monospace;
       display: flex;
-      flex-direction: column; /* Cambiado a columna para centrar el formulario y el botón */
       justify-content: center;
       align-items: center;
       color: #c1ffea;
@@ -42,10 +41,9 @@ session_start();
       width: 320px;
       display: flex;
       flex-direction: column;
-      gap: 20px; /* Espacio entre los elementos del formulario */
+      gap: 20px;
       border: 1px solid #0f4c81;
       transition: box-shadow 0.3s ease;
-      margin-bottom: 20px; /* Añadido margen inferior para separar del nuevo botón */
     }
 
     form:hover {
@@ -61,7 +59,6 @@ session_start();
       color: #c1ffea;
       font-size: 16px;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      width: 100%; /* Hacemos que los inputs ocupen todo el ancho */
     }
 
     input[type="text"]::placeholder,
@@ -89,7 +86,6 @@ session_start();
       cursor: pointer;
       transition: background 0.3s ease, box-shadow 0.3s ease;
       user-select: none;
-      width: 100%; /* Hacemos que los botones ocupen todo el ancho */
     }
 
     input[type="submit"]:hover,
@@ -98,42 +94,19 @@ session_start();
       box-shadow: 0 0 12px #3ea0ff;
     }
 
+    button.button {
+      margin-top: 10px;
+    }
+
     input[type="submit"]:active,
     button.button:active {
       transform: scale(0.98);
-    }
-
-    /* Estilos para el nuevo botón "Volver a la página principal" */
-    .btn-volver-principal {
-        display: block; /* Para que ocupe su propia línea */
-        width: 320px; /* Mismo ancho que el formulario para alineación */
-        padding: 12px 20px;
-        background-color: #0056b3; /* El color solicitado */
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        text-decoration: none; /* Quita el subrayado del enlace */
-        font-size: 16px;
-        font-weight: 700;
-        text-align: center; /* Centra el texto dentro del botón */
-        transition: background-color 0.2s ease-in-out, box-shadow 0.3s ease;
-        box-shadow: 0 0 12px rgba(0, 86, 179, 0.5); /* Sombra para el botón */
-    }
-
-    .btn-volver-principal:hover {
-        background-color: #003f7f; /* Un tono un poco más oscuro al pasar el ratón */
-        box-shadow: 0 0 18px rgba(0, 86, 179, 0.7); /* Sombra más pronunciada al pasar el ratón */
     }
 
     @media (max-width: 400px) {
       form {
         width: 90%;
         padding: 30px 20px;
-      }
-      .btn-volver-principal {
-        width: 90%; /* Ajusta el ancho del botón en pantallas pequeñas */
-        padding: 10px 15px; /* Ajusta el padding en pantallas pequeñas */
       }
     }
     </style>
@@ -145,11 +118,7 @@ session_start();
     <input type="password" name="contrasena" placeholder="Contraseña" required>
     <input type="submit" name="login" value="Iniciar Sesión">
     <button type="button" class="button" onclick="window.location.href='registro.php'">Registrarse</button>
-    
 </form>
-
-<!-- Nuevo botón para volver a la página principal -->
-<a href="index.html" class="btn-volver-principal">Volver a la página principal</a>
 
 <?php
 
