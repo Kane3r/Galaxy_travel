@@ -5,6 +5,12 @@ if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
 }
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -84,10 +90,14 @@ if (!isset($_SESSION['id'])) {
         <button onclick="sendMessage()">Enviar</button>
     </div>
     <div style="width: 100%; max-width: 600px; display: flex; justify-content: flex-end; margin-top: 20px;">
-    <a href="index.html" style="text-decoration: none;">
+    <div style="width: 100%; max-width: 600px; display: flex; justify-content: center; gap: 16px; margin-top: 32px;">
+      <a href="index.html" style="text-decoration: none;">
         <button style="background-color: #00bfff; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: background-color 0.2s ease-in-out;">Volver al inicio</button>
-    </a>
-</div>
+      </a>
+      <a href="?logout=1" style="text-decoration: none;">
+        <button style="background-color: #ff4c4c; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: background-color 0.2s ease-in-out;">Cerrar sesión</button>
+      </a>
+    </div>
 
     <script src="scripts/script_chat.js"></script>
 </body>

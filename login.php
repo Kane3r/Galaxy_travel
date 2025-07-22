@@ -98,6 +98,17 @@ session_start();
       margin-top: 10px;
     }
 
+.volver-inicio-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
     input[type="submit"]:active,
     button.button:active {
       transform: scale(0.98);
@@ -119,6 +130,10 @@ session_start();
     <input type="submit" name="login" value="Iniciar Sesión">
     <button type="button" class="button" onclick="window.location.href='registro.php'">Registrarse</button>
 </form>
+
+<div class="volver-inicio-container">
+  <button type="button" class="button" onclick="window.location.href='index.html'">Volver al inicio</button>
+</div>
 
 <?php
 

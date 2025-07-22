@@ -23,6 +23,50 @@ Jamie Coulter
   /* Likely future */
 }
 
+/* Botón "Ver imágenes del hotel" bonito gris con bordes naranjas */
+.panel button {
+  background: #f2f2f2;
+  color: #ff8000;
+  border: 2px solid #ff8000;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-size: 1.1em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.panel button:hover {
+  background: #ff8000;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255,128,0,0.15);
+  transform: scale(1.05);
+}
+/* Botón Volver al inicio */
+.btn-volver-inicio {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  z-index: 1000;
+  background: #f2f2f2;
+  color: #ff8000;
+  border: 2px solid #ff8000;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.85em;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.btn-volver-inicio:hover {
+  background: #ff8000;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(255,128,0,0.15);
+  transform: scale(1.05);
+}
 body .solar_systm .planet, body input[type=radio][name=planet]::after, body .overlay {
   position: absolute;
   left: 0;
