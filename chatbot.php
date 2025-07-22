@@ -83,6 +83,11 @@ if (!isset($_SESSION['id'])) {
         <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
         <button onclick="sendMessage()">Enviar</button>
     </div>
+    <div style="width: 100%; max-width: 600px; display: flex; justify-content: flex-end; margin-top: 20px;">
+    <a href="index.html" style="text-decoration: none;">
+        <button style="background-color: #00bfff; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: background-color 0.2s ease-in-out;">Volver al inicio</button>
+    </a>
+</div>
 
     <script src="scripts/script_chat.js"></script>
 </body>

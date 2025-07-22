@@ -13,12 +13,8 @@ Zarko Rvovic
 
 body {
     background: radial-gradient(circle, #131111 0%, black 17%, black 27%);
-    height: 100vh;
+    min-height: 100vh;
     font-family: "Fira Mono", monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
     color: #fff;
 }
 
@@ -152,17 +148,14 @@ body {
 
 .container {
     background-color: rgba(255, 255, 255, 0.05);
-    padding: 30px 50px;
+    padding: 30px 32px;
     border-radius: 10px;
     box-shadow: 0 0 25px 5px rgba(0, 123, 255, 0.4); /* Sombra azul aplicada aquí */
     max-width: 900px;
-    width: 90%;
+    width: 100%;
+    margin: 40px auto 32px auto;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    overflow-y: auto;
-    max-height: 90vh;
+    display: block;
     z-index: 10; /* Asegura que el contenido esté por encima del planeta */
 }
 
