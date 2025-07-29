@@ -2,9 +2,13 @@
 session_start();
 
 if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
+    echo "<script>
+        alert('Debes iniciar sesión para acceder al chat con Astroneer.');
+        window.location.href = 'login.php';
+    </script>";
     exit();
 }
+
 if (isset($_GET['logout'])) {
     session_unset();
     session_destroy();
@@ -78,6 +82,16 @@ if (isset($_GET['logout'])) {
         button:hover {
             background-color: #009acd;
         }
+
+        .footer-disclaimer {
+            margin-top: 60px;
+            max-width: 800px;
+            font-size: 13px;
+            color: #aaaaaa;
+            text-align: center;
+            line-height: 1.6;
+            padding: 0 10px;
+        }
     </style>
 </head>
 <body>
@@ -89,14 +103,21 @@ if (isset($_GET['logout'])) {
         <input type="text" id="userInput" placeholder="Escribe tu mensaje...">
         <button onclick="sendMessage()">Enviar</button>
     </div>
-    <div style="width: 100%; max-width: 600px; display: flex; justify-content: flex-end; margin-top: 20px;">
+
     <div style="width: 100%; max-width: 600px; display: flex; justify-content: center; gap: 16px; margin-top: 32px;">
-      <a href="index.html" style="text-decoration: none;">
-        <button style="background-color: #00bfff; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: background-color 0.2s ease-in-out;">Volver al inicio</button>
-      </a>
-      <a href="?logout=1" style="text-decoration: none;">
-        <button style="background-color: #ff4c4c; color: white; border: none; border-radius: 6px; padding: 10px 20px; cursor: pointer; transition: background-color 0.2s ease-in-out;">Cerrar sesión</button>
-      </a>
+        <a href="index.html" style="text-decoration: none;">
+            <button style="background-color: #00bfff;">Volver al inicio</button>
+        </a>
+        <a href="?logout=1" style="text-decoration: none;">
+            <button style="background-color: #ff4c4c;">Cerrar sesión</button>
+        </a>
+    </div>
+
+    <div class="footer-disclaimer">
+        <p>
+            <strong>Cláusula de exención de responsabilidad:</strong><br>
+            Galaxy Travel y sus afiliados no se hacen responsables, en ninguna circunstancia, por daños directos, indirectos, incidentales, consecuenciales o especiales que pudieran surgir como resultado de viajes espaciales fallidos, retrasos, fallas tecnológicas, errores en los sistemas de navegación o cualquier otro evento que afecte la integridad del individuo o su propiedad. Al utilizar nuestros servicios, el usuario reconoce y acepta que los viajes interplanetarios conllevan riesgos inherentes, y exonera de toda responsabilidad a Galaxy Travel por cualquier daño, pérdida, lesión, trauma físico, psicológico o material que pudiera ocurrir antes, durante o después de su viaje. El uso de este servicio implica la aceptación expresa de estos términos.
+        </p>
     </div>
 
     <script src="scripts/script_chat.js"></script>

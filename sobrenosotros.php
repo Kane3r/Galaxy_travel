@@ -1,8 +1,5 @@
-
 <?php
-
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +9,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Nosotros - Galaxy Travel</title>
     <link rel="stylesheet" href="styles/style_sobrenosotros.css">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -35,8 +31,7 @@ session_start();
     </div>
 
     <div class="container">
-        <div class="header">
-          </div>
+        <div class="header"></div>
 
         <div class="about-us-section" style="background: linear-gradient(135deg, #0b0f33 60%, #00bfff 100%); border-radius: 18px; box-shadow: 0 4px 32px rgba(0,0,0,0.12); padding: 32px 24px; margin-bottom: 32px; color: #fff;">
             <h1 class="mainTitle" style="font-size: 2.6rem; color: #fff; text-shadow: 2px 2px 8px #00bfff; margin-bottom: 12px;">¡Gusto en conocerte!</h1>
@@ -58,7 +53,9 @@ session_start();
             </div>
             <div style="margin-top: 32px; background: rgba(255,255,255,0.10); border-radius: 8px; padding: 18px; color: #fff;">
                 <h3 style="color: #00bfff; margin-bottom: 10px;">Nuestras instalaciones</h3>
-                <p style="font-size: 1.1rem; color: #fff;">Nuestra oficina principal queda en Maracaibo - Estado Zulia, Av Delicias, Calle 33A.</p>
+                <p style="font-size: 1.1rem; color: #fff;">
+                    Nuestra oficina central está ubicada en Virginia, Estados Unidos, específicamente en Arlington, 2110 Washington Blvd.
+                </p>
             </div>
         </div>
 
@@ -69,24 +66,20 @@ session_start();
         </div>
     </div>
 
-
     <div id="WebGL-output"></div>
     <div class="explosion"></div>
 
     <script>
-  
         const cursor = document.querySelector(".cursor");
         const explosion = document.querySelector(".explosion");
         const menuBtn = document.getElementById("menuBtn");
         const menu = document.querySelector(".side-menu .menu");
 
-  
         document.addEventListener("mousemove", (e) => {
             cursor.style.left = e.clientX + "px";
             cursor.style.top = e.clientY + "px";
         });
 
-       
         document.addEventListener("click", (e) => {
             explosion.style.left = e.clientX + "px";
             explosion.style.top = e.clientY + "px";
@@ -115,8 +108,6 @@ session_start();
                 menu.style.display = 'none';
             }
         });
-
-  
     </script>
 </body>
 </html>

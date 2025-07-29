@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2025 a las 02:22:11
--- Versión del servidor: 10.4.24-MariaDB
--- Versión de PHP: 8.1.6
+-- Tiempo de generación: 29-07-2025 a las 23:27:52
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `clientes` (
   `edad` int(11) DEFAULT NULL,
   `cedula_identidad` varchar(20) DEFAULT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -43,7 +43,8 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`id`, `usuario`, `contrasena`, `nombre`, `edad`, `cedula_identidad`, `fecha_registro`) VALUES
 (1, 'kevin123', '$2y$10$pnRMMwqtMw0z28EFcFM1J.BYcasFQn2mvbaYGaMsxX.pYBvRgzt5.', 'Kevin Rozo', 22, 'V-12345678', '2025-07-07 04:00:00'),
-(2, 'kevin', '$2y$10$vgMLZoytkoEzntQt3X3VWOcNH4sUAzQIZ5V67ovtl.C25CjjNKZIK', 'Kevin Jesus', 24, '28109034', '2025-07-07 04:00:00');
+(2, 'kevin', '$2y$10$vgMLZoytkoEzntQt3X3VWOcNH4sUAzQIZ5V67ovtl.C25CjjNKZIK', 'Kevin Jesus', 24, '28109034', '2025-07-07 04:00:00'),
+(3, 'admin', '$2y$10$EBdhl8kKW/YqzJr3UkGqYuIhfzIVOOHDIkdoI0W5ZabPqyY4NRJZC', 'Galaxy travel', 30, '1', '2025-07-29 04:00:00');
 
 -- --------------------------------------------------------
 
@@ -56,19 +57,19 @@ CREATE TABLE `destinos` (
   `nombre` varchar(100) NOT NULL,
   `descripcion` text DEFAULT NULL,
   `precio_base` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `destinos`
 --
 
 INSERT INTO `destinos` (`id`, `nombre`, `descripcion`, `precio_base`) VALUES
-(1, 'Mercurio', NULL, '0.00'),
-(2, 'Venus', NULL, '0.00'),
-(3, 'Órbita Terrestre', NULL, '0.00'),
-(4, 'Marte', NULL, '0.00'),
-(5, 'Lunas de Júpiter', NULL, '0.00'),
-(6, 'Lunas de Saturno', NULL, '0.00');
+(1, 'Mercurio', NULL, 0.00),
+(2, 'Venus', NULL, 0.00),
+(3, 'Órbita Terrestre', NULL, 0.00),
+(4, 'Marte', NULL, 0.00),
+(5, 'Lunas de Júpiter', NULL, 0.00),
+(6, 'Lunas de Saturno', NULL, 0.00);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,7 @@ CREATE TABLE `pagos` (
   `monto_pagado` decimal(10,2) DEFAULT NULL,
   `metodo_pago` varchar(50) DEFAULT NULL,
   `fecha_pago` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -100,19 +101,19 @@ CREATE TABLE `paquetes` (
   `cupos_disponibles` int(11) DEFAULT NULL,
   `precio_total` varchar(50) DEFAULT NULL,
   `precio_numerico` decimal(18,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `paquetes`
 --
 
 INSERT INTO `paquetes` (`id`, `nombre`, `destino_id`, `descripcion`, `fecha_salida`, `duracion_dias`, `cupos_disponibles`, `precio_total`, `precio_numerico`) VALUES
-(1, 'Escapada Extrema a Mercurio - El Mensajero Solar', 1, 'Estancia en base subterránea. Incluye: observación solar desde mirador blindado, exploración guiada en vehículos radioprotegidos, participación en experimentos geológicos, vistas planetarias desde órbita de Mercurio.', '2026-01-10', 180, 4, '1.5 billones de dolares', '1500000000.00'),
-(2, 'Aventura Atmosférica en Venus - El Velo Naranja Flotante', 2, 'Estancia en ciudad flotante. Incluye: observación de nubes de ácido sulfúrico, exploración en vehículos aéreos, estudios del efecto invernadero y vistas atmosféricas únicas.', '2026-03-20', 120, 6, '2 billones de dolares', '2000000000.00'),
-(3, 'Retiro en Órbita Terrestre - El Oasis Azul', 3, 'Estancia en la ISS o hotel espacial. Incluye: vistas panorámicas de la Tierra, experimentación en microgravedad, comidas espaciales, caminatas opcionales.', '2025-11-01', 14, 10, '500 mil dolares', '500000.00'),
-(4, 'Pioneros en Marte - La Nueva Frontera Roja', 4, 'Hábitats presurizados en la superficie marciana. Incluye: exploración en rover, construcción de base, investigaciones científicas, cultivo en invernaderos, observación de Fobos y Deimos.', '2027-06-15', 600, 2, '5 billones de dolares', '5000000000.00'),
-(5, 'Exploración Lunar Joviana - Los Océanos Escondidos', 5, 'Estancia en bases blindadas en Europa, Ganímedes o Calisto. Incluye: perforación de hielo, exploración oceánica robótica, estudios de vida microbiana, observación de Júpiter.', '2028-09-30', 1000, 1, '7.5 billones de dolares', '7500000000.00'),
-(6, 'Descubrimiento en las Lunas de Saturno - Los Mundos Anillados', 6, 'Hábitats protegidos en Titán o Encélado. Incluye: navegación por lagos de metano, exploración de dunas, recolección de penachos de hielo, observación de anillos.', '2029-04-22', 1500, 1, '9 billones de dolares', '9000000000.00');
+(1, 'Escapada Extrema a Mercurio - El Mensajero Solar', 1, 'Estancia en base subterránea. Incluye: observación solar desde mirador blindado, exploración guiada en vehículos radioprotegidos, participación en experimentos geológicos, vistas planetarias desde órbita de Mercurio.', '2026-01-10', 180, 4, '1.5 billones de dolares', 1500000000.00),
+(2, 'Aventura Atmosférica en Venus - El Velo Naranja Flotante', 2, 'Estancia en ciudad flotante. Incluye: observación de nubes de ácido sulfúrico, exploración en vehículos aéreos, estudios del efecto invernadero y vistas atmosféricas únicas.', '2026-03-20', 120, 6, '2 billones de dolares', 2000000000.00),
+(3, 'Retiro en Órbita Terrestre - El Oasis Azul', 3, 'Estancia en la ISS o hotel espacial. Incluye: vistas panorámicas de la Tierra, experimentación en microgravedad, comidas espaciales, caminatas opcionales.', '2025-11-01', 14, 10, '500 mil dolares', 500000.00),
+(4, 'Pioneros en Marte - La Nueva Frontera Roja', 4, 'Hábitats presurizados en la superficie marciana. Incluye: exploración en rover, construcción de base, investigaciones científicas, cultivo en invernaderos, observación de Fobos y Deimos.', '2027-06-15', 600, 2, '5 billones de dolares', 5000000000.00),
+(5, 'Exploración Lunar Joviana - Los Océanos Escondidos', 5, 'Estancia en bases blindadas en Europa, Ganímedes o Calisto. Incluye: perforación de hielo, exploración oceánica robótica, estudios de vida microbiana, observación de Júpiter.', '2028-09-30', 1000, 1, '7.5 billones de dolares', 7500000000.00),
+(6, 'Descubrimiento en las Lunas de Saturno - Los Mundos Anillados', 6, 'Hábitats protegidos en Titán o Encélado. Incluye: navegación por lagos de metano, exploración de dunas, recolección de penachos de hielo, observación de anillos.', '2029-04-22', 1500, 1, '9 billones de dolares', 9000000000.00);
 
 -- --------------------------------------------------------
 
@@ -126,7 +127,7 @@ CREATE TABLE `reservaciones` (
   `paquete_id` int(11) NOT NULL,
   `fecha_reserva` timestamp NOT NULL DEFAULT current_timestamp(),
   `estado` enum('pendiente','confirmado','cancelado') DEFAULT 'pendiente'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -176,7 +177,7 @@ ALTER TABLE `reservaciones`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `destinos`

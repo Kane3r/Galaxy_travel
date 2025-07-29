@@ -1,27 +1,28 @@
 const planetImages = {
-  Mercurio: [
-    "assets/img/Mercurio_hotel1.jpeg",
-    "assets/img/Mercurio_hotel2.jpeg"
+  mercurio: [
+    "assets/img/mercurio1.jpeg",
+    "assets/img/mercurio2.jpeg"
   ],
-  Venus: [
-    "assets/img/Venus_hotel1.jpeg",
-    "assets/img/Venus_hotel2.jpeg"
+  venus: [
+    "assets/img/venus1.jpeg",
+    "assets/img/venus2.jpeg",
+    "assets/img/venus3.jpeg"
   ],
-  Tierra: [
-    "assets/img/Tierra_hotel1.jpeg",
-    "assets/img/Tierra_hotel2.jpeg"
+  tierra: [
+    "assets/img/luna_tierra1.jpeg",
+    "assets/img/luna_tierra2.jpeg"
   ],
-  Marte: [
-    "assets/img/Marte_hotel1.jpeg",
-    "assets/img/Marte_hotel2.jpeg"
+  marte: [
+    "assets/img/marte1.jpeg",
+    "assets/img/marte2.jpeg"
   ],
-  Jupiter: [
-    "assets/img/Jupiter_hotel1.jpeg",
-    "assets/img/Jupiter_hotel2.jpeg"
+  jupiter: [
+    "assets/img/jupiter1.jpeg",
+    "assets/img/jupiter2.jpeg"
   ],
-  Saturno: [
-    "assets/img/Saturno_hotel1.jpeg",
-    "assets/img/Saturno_hotel2.jpeg"
+  saturno: [
+    "assets/img/saturno_helado.jpeg",
+    "assets/img/saturno_titan.jpeg"
   ]
 };
 
@@ -29,12 +30,14 @@ let images = [];
 let currentIndex = 0;
 
 function openModal(planetName) {
-  images = planetImages[planetName] || [];
+  const key = planetName.toLowerCase(); // aseguramos minúsculas
+  images = planetImages[key] || [];
   currentIndex = 0;
 
   if (images.length > 0) {
     document.getElementById("sliderImage").src = images[currentIndex];
     document.getElementById("imageModal").style.display = "block";
+    document.body.style.overflow = "hidden"; // desactiva scroll de fondo
   } else {
     alert("No hay imágenes disponibles para " + planetName);
   }
@@ -42,14 +45,12 @@ function openModal(planetName) {
 
 function closeModal() {
   document.getElementById("imageModal").style.display = "none";
+  document.body.style.overflow = "auto"; // reactiva scroll
 }
 
 function changeSlide(direction) {
   if (images.length === 0) return;
 
-  currentIndex += direction;
-  if (currentIndex < 0) currentIndex = images.length - 1;
-  if (currentIndex >= images.length) currentIndex = 0;
-
+  currentIndex = (currentIndex + direction + images.length) % images.length;
   document.getElementById("sliderImage").src = images[currentIndex];
 }

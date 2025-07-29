@@ -30,6 +30,7 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $BaseDeDatos);
       align-items: center;
       color: #c1ffea;
       overflow: hidden;
+      flex-direction: column;
     }
 
     form {
@@ -109,6 +110,14 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $BaseDeDatos);
       border-radius: 6px;
     }
 
+    .extras {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+
     @media (max-width: 400px) {
       form {
         width: 90%;
@@ -123,11 +132,14 @@ $enlace = mysqli_connect($servidor, $usuario, $clave, $BaseDeDatos);
     <input type="text" name="usuario" placeholder="Nombre de usuario" required>
     <input type="password" name="contrasena" placeholder="Contraseña" required>
     <input type="text" name="nombre" placeholder="Nombre completo" required>
-    <input type="number" name="edad" placeholder="Edad" required>
+    <input type="number" name="edad" placeholder="Edad" min="1" required>
     <input type="text" name="cedula" placeholder="Cédula de identidad" required>
     <input type="submit" name="registro" value="Registrar">
     <input type="reset" value="Limpiar">
-    <button type="button" class="button2" onclick="window.location.href='login.php'">Volver al inicio de sesión</button>
+    <div class="extras">
+      <button type="button" class="button2" onclick="window.location.href='login.php'">Volver al inicio de sesión</button>
+      <button type="button" class="button2" onclick="window.location.href='index.html'">Volver al inicio</button>
+    </div>
 </form>
 
 <?php
@@ -139,6 +151,12 @@ if (isset($_POST['registro'])) {
     $cedula = mysqli_real_escape_string($enlace, $_POST['cedula']);
     $fechaRegistro = date("Y-m-d");
 
+    // Validación de edad en el servidor
+    if ($edad < 1) {
+        echo "<script>alert('La edad debe ser mayor a 0');</script>";
+        return;
+    }
+
     // Verificar si el usuario o la cédula ya existen
     $verificar = "SELECT * FROM clientes WHERE usuario = '$usuarioInput' OR cedula_identidad = '$cedula'";
     $resultado = mysqli_query($enlace, $verificar);
@@ -149,7 +167,7 @@ if (isset($_POST['registro'])) {
         $insertar = "INSERT INTO clientes (usuario, contrasena, nombre, edad, cedula_identidad, fecha_registro)
                      VALUES ('$usuarioInput', '$contrasena', '$nombre', $edad, '$cedula', '$fechaRegistro')";
         if (mysqli_query($enlace, $insertar)) {
-            echo "<script>alert('Registro exitoso'); window.location='index.php';</script>";
+            echo "<script>alert('Registro exitoso'); window.location='index.html';</script>";
         } else {
             echo "<script>alert('Error al registrar');</script>";
         }

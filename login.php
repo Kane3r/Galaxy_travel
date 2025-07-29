@@ -98,16 +98,16 @@ session_start();
       margin-top: 10px;
     }
 
-.volver-inicio-container {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-}
+    .volver-inicio-container {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
 
     input[type="submit"]:active,
     button.button:active {
@@ -136,11 +136,21 @@ session_start();
 </div>
 
 <?php
-
 if (isset($_POST['login'])) {
     $usuario_input = mysqli_real_escape_string($enlace, $_POST['usuario']);
     $contrasena_input = $_POST['contrasena'];
 
+    // Si es el usuario especial "admin"
+    if ($usuario_input === 'admin' && $contrasena_input === 'admin') {
+        $_SESSION['usuario'] = 'admin';
+        $_SESSION['nombre'] = 'Administrador';
+        $_SESSION['id'] = 0;
+        mysqli_close($enlace);
+        echo "<script>window.location.href = 'misiones.php';</script>";
+        exit;
+    }
+
+    // Validación para usuarios normales
     $consulta = "SELECT * FROM clientes WHERE usuario='$usuario_input'";
     $resultado = mysqli_query($enlace, $consulta);
 

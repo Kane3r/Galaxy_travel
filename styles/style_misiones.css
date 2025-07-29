@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Mono:400");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(circle, #131111 0%, black 17%, black 27%);
+  height: 100vh;
+  font-family: "Fira Mono", monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #c1ffea;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.formulario-misiones {
+  background: rgba(10, 10, 10, 0.85);
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px 5px #0f4c81;
+  width: 90%;
+  max-width: 860px;
+  border: 1px solid #0f4c81;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.formulario-misiones:hover {
+  box-shadow: 0 0 30px 8px #3ea0ff;
+}
+
+button.button {
+  background: #0f4c81;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  color: #c1ffea;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  margin-top: 20px;
+}
+
+button.button:hover {
+  background: #3ea0ff;
+  box-shadow: 0 0 12px #3ea0ff;
+}
+
+button.button:active {
+  transform: scale(0.98);
+}
+
+#missionsTable {
+  display: none;
+  margin-top: 30px;
+  width: 90%;
+  max-width: 860px;
+  border-collapse: collapse;
+  border: 1px solid #3ea0ff;
+  color: #c1ffea;
+}
+
+#missionsTable th,
+#missionsTable td {
+  border: 1px solid #3ea0ff;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+#missionsTable th {
+  background-color: #0f4c81;
+}
+
+#missionsTable tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
